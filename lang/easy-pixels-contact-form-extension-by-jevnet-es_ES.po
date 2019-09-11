@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Pixels by JEVNET 1.0\n"
+"Report-Msgid-Bugs-To: info@jevnet.es\n"
+"POT-Creation-Date: 2019-09-05 12:15+0200\n"
+"PO-Revision-Date: 2019-09-05 12:15+0200\n"
+"Last-Translator: \n"
+"Language-Team: Sergi <sergi@jevnet.es>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 2.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../admin/easyPixelsCF7Admin.php:54
+msgid "Enable Google Ads tracking"
+msgstr "Activar seguimiento de Google Ads"
+
+#: ../admin/easyPixelsCF7Admin.php:54
+msgid "Enable"
+msgstr "Activar"
+
+#: ../admin/page-basicNotInstalled.php:2
+msgid "Contact Form 7 tracking"
+msgstr "Seguimiento de Contact Form 7"
+
+#: ../admin/page-basicNotInstalled.php:3 ../admin/page-easyPixelsCF7Admin.php:3
+msgid ""
+"Track Contact Form 7! Works with Google Ads, Facebook and Google Analytics."
+msgstr ""
+"¡Realiza el seguimiento de Contact Form 7! Funciona con Google Ads, píxel de "
+"Facebook y Google Analytics."
+
+#: ../admin/page-basicNotInstalled.php:11
+msgid ""
+"The plugin \"Easy Pixels by JEVNET\" is required as core of this plugin."
+msgstr ""
+"Es necesario instalar el plugin \"Easy Pixels\" de JEVNET como base de esta "
+"extensión."
+
+#: ../admin/page-basicNotInstalled.php:13
+msgid "Please, download Easy Pixels and begin to track your forms."
+msgstr ""
+"Por favor, descarga Easy Pixels y empieza a realizar el seguimiento de tus "
+"formularios."
+
+#: ../admin/page-basicNotInstalled.php:15
+msgid "Download Easy Pixels"
+msgstr "Descarga Easy Pixels"
+
+#: ../admin/page-easyPixelsCF7Admin.php:2
+msgid "Easy Pixels by <b>JEVNET</b>"
+msgstr "Easy Pixels por <b>JEVNET</b>"
