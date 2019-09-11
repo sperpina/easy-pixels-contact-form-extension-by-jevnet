@@ -63,6 +63,8 @@ function jn_cf7TrackingAdminSettings()
 		if($the_query->have_posts() )
 		{
 			$postCounter=0;
+			var_dump($the_query->posts);
+			if(sizeof($the_query->posts)==0){echo __('No "Contact form 7" are found');}
 			while($postCounter<sizeof($the_query->posts))
 			{
 				$CF7id=(int)strip_tags(apply_filters('the_content', $the_query->posts[$postCounter]->ID ));
@@ -91,12 +93,12 @@ function jn_cf7TrackingAdminSettings()
 				{
 					$trackingCode.="twq('track','Signup', {content_category:'contact form',content_name: '".$form_title."'});</script>';";
 				}
-	$gAdsFields='';
-	if(($jn_gAds->is_enabled())&&($jn_gAds->getCode()!=''))
-	{
-		$gAdsFields='<td>'.$jn_gAds->getCode().' / <input value="'.$value.'" type="text" id="'.$GAD_label_id.'" name="'.$GAD_label_id.'" placeholder="YYYYYYYYYYYYYYYYYYY"></td>';
-	}
-	?>
+				$gAdsFields='';
+				if(($jn_gAds->is_enabled())&&($jn_gAds->getCode()!=''))
+				{
+					$gAdsFields='<td>'.$jn_gAds->getCode().' / <input value="'.$value.'" type="text" id="'.$GAD_label_id.'" name="'.$GAD_label_id.'" placeholder="YYYYYYYYYYYYYYYYYYY"></td>';
+				}
+				?>
 
 				<tr>
 					<th><label for="jn_GADW_CF7_label">(<?php echo $CF7id.') - '.$CF7title; ?></label></th><?php echo  $gAdsFields; ?><td><?php echo $trackingCode; ?></td>
@@ -105,10 +107,10 @@ function jn_cf7TrackingAdminSettings()
 				<?php
 				$postCounter++;
 			}
-		}
+		}else{echo __('No "Contact form 7" forms are found');}
 		?>
 		</table>
-<?php }
+<?php }else{echo '<div class="notice notice-error"><p>'.__('"Contact form 7" plugin is not installed or active.').'</p></div>';echo '<p>'.__('"Contact form 7" plugin is not installed or active.').'</p>';}
 }
 
 function save_jnEasyPixelsCF7Settings()

@@ -3,7 +3,7 @@ Contributors: jevnet, sperpina
 Tags: tracking, ecommerce, marketing, pixel, facebook, analytics, adwords, google, contact form 7
 Requires at least: 4.0
 Tested up to: 5.2
-Stable tag: 1.2
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 - Google Ads
 - Bing
 - Facebook Ads
+- Twitter Ads
+- Google Tag Manager
 
 This plugin requires The ["Easy Pixels" plugin](https://es.wordpress.org/plugins/easy-pixels-by-jevnet/) and ["Contact Form 7" plugin](https://es.wordpress.org/plugins/contact-form-7/) .
 
@@ -27,8 +29,11 @@ This plugin requires The ["Easy Pixels" plugin](https://es.wordpress.org/plugins
 
 
 == Changelog ==
+= 1.4 =
+Google Tag Manager event (Requires EasyPixels 1.8)
 
-twitter
+= 1.3 =
+Twitter tracking (Requires EasyPixels 1.7.2)
 
 = 1.2 =
 *Release Date - 05 Sept 2019*

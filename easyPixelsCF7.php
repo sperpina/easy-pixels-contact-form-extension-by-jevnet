@@ -3,7 +3,7 @@
 Plugin Name: Easy Pixels - Contact Form Extension by JEVNET
 Plugin URI: https://www.jevnet.es/contact-form-7-adwords-facebook-tracking-plugin
 Description: Easy Pixels extension to track Contact Form 7
-Version: 1.2
+Version: 1.4
 Author: JEVNET
 Author URI: https://www.jevnet.es
 License: GPLv2 or later
@@ -44,7 +44,7 @@ if(is_admin())
 }
 else
 {
-	if((WPCF7_VERSION!==null)&&(get_option('jn_GADW_CF7_enable')=='on'))
+	if(defined('WPCF7_VERSION')&&(WPCF7_VERSION!==null))
 	{
 		add_action("wpcf7_contact_form","jn_setCF7_Listener",10);
 	}
@@ -70,7 +70,7 @@ function jn_set_cf7_pixel3($theCF7id,$form_title)
 	$jn_gAds=new jn_easyGAds();
 	$jn_bingAds=new jn_easyBingAds();
 	$jn_TwitterAds=new jn_easypixels_Twitter();
-
+	if(class_exists('jn_easyGTagManager')){$jn_GTMtracking=new jn_easyGTagManager();} 
 
 	if(($jn_gAds->is_enabled())&&(isset($jn_ADW_CF7_labels['jn_GADW_CF7_label_'.$theCF7id]))&&($jn_ADW_CF7_labels['jn_GADW_CF7_label_'.$theCF7id]!='')&&($jn_gAds->getCode()!='')&&(get_option('jn_GADW_CF7_enable')!=''))
 	{
@@ -78,11 +78,11 @@ function jn_set_cf7_pixel3($theCF7id,$form_title)
 		$label=(sizeof($label)==2)?$jn_ADW_CF7_labels['jn_GADW_CF7_label_'.$theCF7id]:$jn_gAds->getCode()."/".$label[0];
 		$tracking.="console.log('tracking');gtag('event', 'conversion', {'send_to': '".$label."'});";
 	}
-	if(($jnEPGA->is_enabled())&&($jnEPGA->getCode()!=''))
+	if(isset($jnEPGA)&&($jnEPGA->is_enabled())&&($jnEPGA->getCode()!=''))
 	{
 		$tracking.="gtag('event', 'generate_lead', {'event_label': '".$theCF7id."','event_category':'".$form_title."'});";
 	}
-	if(($jnFB->is_enabled())&&($jnFB->getCode()!=''))
+	if(isset($jnFB)&&($jnFB->is_enabled())&&($jnFB->getCode()!=''))
 	{
 		$tracking.="fbq('track', 'Lead',{content_category: '".$form_title."'});";
 	}
@@ -90,6 +90,12 @@ function jn_set_cf7_pixel3($theCF7id,$form_title)
 	{
 		$tracking.="window.uetq = window.uetq || [];window.uetq.push({ 'ec':'form', 'ea':'send', 'el':'".$form_title."'}); ";
 	}
+	if(isset($jn_GTMtracking)&&($jn_GTMtracking->is_enabled())&&($jn_GTMtracking->getCode()!=''))
+	{
+		$tracking.="dataLayer.push({'event': 'formsent','formname':'".$form_title."'});";
+	}
+
+	
 	if(($jn_TwitterAds->is_enabled())&&($jn_TwitterAds->getCode()!=''))
 	{
 		$tracking.="twq('track','Signup', {content_category:'contact form',content_name: '".$form_title."'});</script>';";
